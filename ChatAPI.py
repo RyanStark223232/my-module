@@ -29,7 +29,7 @@ class ChatAPI:
 					"chinchilla", 
 					message, 
 					with_chat_break=clear_context,
-					timeout = 600
+					timeout = 30
 				): 
 					pass
 				response = chunk["text"]
