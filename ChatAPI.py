@@ -28,7 +28,8 @@ class ChatAPI:
 				for chunk in self.client.send_message(
 					"chinchilla", 
 					message, 
-					with_chat_break=clear_context
+					with_chat_break=clear_context,
+					timeout = 600
 				): 
 					pass
 				response = chunk["text"]
@@ -36,4 +37,4 @@ class ChatAPI:
 			except Exception as e:
 				print(f"***Caught Exception {e}, Retrying")
 				time.sleep(3)
-				return self.generate(message, clear_context, layer + 1, model)
+				return self.generate(message, clear_context, model, layer + 1)
